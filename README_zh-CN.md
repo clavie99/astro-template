@@ -14,6 +14,7 @@
 - **`/md`** - 使用 Astro 内容集合的 Markdown 内容示例
 - **`/mdx`** - 结合 Markdown 和 JSX 组件的 MDX 内容示例
 - **`/static`** - 使用预渲染的静态页面生成示例
+- **`/solution`** - 解决方案总览页，梳理架构、数据流与交付流程
 
 ### 核心特性
 
@@ -58,6 +59,14 @@ Astro 会在 `src/pages/` 目录中寻找 `.astro` 或 `.md` 文件。每个页�
 - [Astro 集成指南](https://docs.astro.build/en/guides/integrations-guide/)
 
 ## 部署
+
+### 本地生成可部署产物
+
+```bash
+npm run deploy:prepare
+```
+
+该命令会先构建项目，再将 `.edgeone` 目录打包到 `deploy-artifacts/`，便于在 CI 或控制台上传流程中使用。
 
 一键部署此项目到 EdgeOne Pages：
 

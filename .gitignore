@@ -34,4 +34,6 @@ pnpm-debug.log*
 .edgeone/
 .tef_dist/*
 package-lock.json
-  
+
+# local deployment bundles
+deploy-artifacts/
