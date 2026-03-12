@@ -1,0 +1,149 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+
+export const prerender = true;
+---
+
+<Layout title="Astro Solution">
+  <main>
+    <h1>Project <span class="text-gradient">Solution</span></h1>
+    <p class="instructions">
+      This page summarizes how this Astro template is implemented end-to-end.<br />
+      <strong>Goal:</strong> Help developers quickly understand architecture,
+      data flow, and delivery steps.
+    </p>
+
+    <section class="section">
+      <h2>1) Architecture Overview</h2>
+      <ul>
+        <li>Server output mode with EdgeOne adapter for SSR deployment.</li>
+        <li>Framework integrations: React, Vue, Svelte, and MDX.</li>
+        <li>Unified page shell and right-side route navigator.</li>
+      </ul>
+      <p class="hint">
+        Key files: <code>astro.config.mjs</code>, <code>src/layouts/Layout.astro</code>,
+        <code>src/components/PageNavigator.astro</code>
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>2) Route Capability Map</h2>
+      <ul role="list" class="link-card-grid">
+        <Card href="/" title="Home" body="Landing page with Astro components and baseline style system." />
+        <Card href="/components" title="Components" body="Hybrid island architecture with React, Vue, and Svelte examples." />
+        <Card href="/inter" title="Interactive + API" body="Client fetch flow via /api/cards and /api/description endpoints." />
+        <Card href="/md" title="Markdown" body="Type-safe content collection entry rendered from .md source." />
+        <Card href="/mdx" title="MDX" body="MDX content collection entry rendered with component-capable markdown." />
+        <Card href="/static" title="Static" body="Prerendered route generated at build time." />
+      </ul>
+    </section>
+
+    <section class="section">
+      <h2>3) Data & Content Flow</h2>
+      <ol>
+        <li><strong>API flow:</strong> <code>/inter</code> requests <code>/api/cards</code> and <code>/api/description</code>, then hydrates UI.</li>
+        <li><strong>Content flow:</strong> Content collection <code>examples</code> provides <code>md</code>/<code>mdx</code> entries, rendered by <code>astro:content</code>.</li>
+        <li><strong>Navigation flow:</strong> All pages inherit shared layout and route switcher for quick validation.</li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <h2>4) Delivery Workflow</h2>
+      <ol>
+        <li><code>npm install</code> — install dependencies.</li>
+        <li><code>npm run dev</code> — local development at <code>localhost:4321</code>.</li>
+        <li><code>npm run build</code> — type check + production build.</li>
+        <li><code>npm run preview</code> — verify build output locally before deployment.</li>
+      </ol>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  :root {
+    --astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
+  }
+
+  h1 {
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  main {
+    margin: auto;
+    padding: 1em;
+    max-width: calc(60ch + 80px);
+  }
+
+  .text-gradient {
+    font-weight: 900;
+    background-image: var(--astro-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 100% 200%;
+    background-position-y: 100%;
+    border-radius: 0.4rem;
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      background-position-y: 0%;
+    }
+    50% {
+      background-position-y: 80%;
+    }
+  }
+
+  .instructions,
+  .section {
+    line-height: 1.6;
+    margin: 1rem 0;
+    border: 1px solid rgba(var(--accent-light), 25%);
+    background: linear-gradient(
+      rgba(var(--accent-dark), 66%),
+      rgba(var(--accent-dark), 33%)
+    );
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .section h2 {
+    margin-top: 0;
+  }
+
+  .hint {
+    opacity: 0.9;
+  }
+
+  .instructions strong,
+  .section strong {
+    color: rgb(var(--accent-light));
+  }
+
+  .section code,
+  .instructions code {
+    font-size: 0.85em;
+    font-weight: 700;
+    background: rgba(var(--accent-light), 12%);
+    color: rgb(var(--accent-light));
+    border-radius: 4px;
+    padding: 0.2em 0.35em;
+  }
+
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .section ul,
+  .section ol {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+</style>

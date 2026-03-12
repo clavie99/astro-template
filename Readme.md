@@ -14,6 +14,7 @@ This project includes several example pages that demonstrate different Astro cap
 - **`/md`** - Markdown content example using Astro's content collections
 - **`/mdx`** - MDX content example combining Markdown with JSX components
 - **`/static`** - Static page generation example with prerendering
+- **`/solution`** - Solution overview page with architecture, data flow, and delivery workflow
 
 ### Key Features
 
@@ -58,6 +59,14 @@ Any static assets, like images, can be placed in the `public/` directory.
 - [Astro Integrations](https://docs.astro.build/en/guides/integrations-guide/)
 
 ## Deploy
+
+### Prepare deployment artifact locally
+
+```bash
+npm run deploy:prepare
+```
+
+This command builds the project and packages the `.edgeone` output into `deploy-artifacts/` for CI/upload workflows.
 
 Deploy this project to EdgeOne Pages with one click:
 
