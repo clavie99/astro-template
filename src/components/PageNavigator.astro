@@ -3,6 +3,7 @@
 const pages = [
   { path: "/", label: "Home" },
   { path: "/components", label: "Comp" },
+  { path: "/product", label: "Product" },
   { path: "/inter", label: "Inter" },
   { path: "/md", label: "MD" },
   { path: "/mdx", label: "MDX" },
@@ -165,7 +166,8 @@ const currentPath = normalizePath(Astro.url.pathname);
   .nav-menu li:nth-child(3) a,
   .nav-menu li:nth-child(4) a,
   .nav-menu li:nth-child(5) a,
-  .nav-menu li:nth-child(6) a {
+  .nav-menu li:nth-child(6) a,
+  .nav-menu li:nth-child(7) a {
     --ring-size: 56px;
     --ring-font: clamp(0.45rem, 1vw, 0.56rem);
   }
@@ -229,7 +231,8 @@ const currentPath = normalizePath(Astro.url.pathname);
     .nav-menu li:nth-child(3) a,
     .nav-menu li:nth-child(4) a,
     .nav-menu li:nth-child(5) a,
-    .nav-menu li:nth-child(6) a {
+    .nav-menu li:nth-child(6) a,
+    .nav-menu li:nth-child(7) a {
       --ring-size: 48px;
       --ring-font: clamp(0.42rem, 1.4vw, 0.5rem);
     }

@@ -1,0 +1,179 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const productHighlights = [
+  {
+    title: "统一内容工作流",
+    description: "通过 Astro 的内容集合管理文档、博客与营销页，发布流程更稳定。",
+  },
+  {
+    title: "更快的首屏加载",
+    description: "默认静态输出 + 按需交互岛架构，减少 JS 负担并提升性能评分。",
+  },
+  {
+    title: "多框架组件共存",
+    description: "在同一页面混合使用 React/Vue/Svelte 组件，迁移和协作更灵活。",
+  },
+];
+
+const plans = [
+  { name: "Starter", price: "¥0", desc: "适合个人项目验证想法", cta: "免费开始" },
+  {
+    name: "Pro",
+    price: "¥99/月",
+    desc: "适合小团队构建正式产品",
+    cta: "立即升级",
+  },
+  {
+    name: "Enterprise",
+    price: "联系销售",
+    desc: "适合有定制化需求的大型团队",
+    cta: "预约演示",
+  },
+];
+---
+
+<Layout title="产品页 | Astro Template">
+  <main class="product-page">
+    <section class="hero">
+      <p class="eyebrow">PRODUCT</p>
+      <h1>更快上线，更稳迭代</h1>
+      <p class="subtitle">
+        这是一个示例产品页，展示如何用 Astro 快速搭建营销与产品信息页面。
+      </p>
+      <div class="hero-actions">
+        <a href="#pricing" class="btn primary">查看价格</a>
+        <a href="/components" class="btn">查看组件能力</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>核心能力</h2>
+      <ul class="feature-grid" role="list">
+        {productHighlights.map((item) => (
+          <li>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section id="pricing">
+      <h2>价格方案</h2>
+      <div class="plan-grid">
+        {plans.map((plan) => (
+          <article class="plan-card">
+            <h3>{plan.name}</h3>
+            <p class="price">{plan.price}</p>
+            <p>{plan.desc}</p>
+            <button type="button">{plan.cta}</button>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .product-page {
+    margin: 0 auto;
+    max-width: 980px;
+    padding: 2rem 1rem 4rem;
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .hero {
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(var(--accent-light), 0.22);
+    background: linear-gradient(
+      150deg,
+      rgba(var(--accent-dark), 0.6),
+      rgba(0, 0, 0, 0.4)
+    );
+  }
+
+  .eyebrow {
+    margin: 0;
+    letter-spacing: 0.15em;
+    font-size: 0.78rem;
+    color: rgb(var(--accent-light));
+  }
+
+  h1 {
+    margin: 0.6rem 0 0.8rem;
+    line-height: 1.2;
+  }
+
+  .subtitle {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 42ch;
+  }
+
+  .hero-actions {
+    margin-top: 1.4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .btn {
+    text-decoration: none;
+    color: var(--color-text);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 0.6rem 1rem;
+    border-radius: 999px;
+  }
+
+  .btn.primary {
+    background: linear-gradient(120deg, #4f39fa, #da62c4);
+    border: none;
+  }
+
+  section h2 {
+    margin-bottom: 1rem;
+  }
+
+  .feature-grid,
+  .plan-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .feature-grid li,
+  .plan-card {
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 0.8rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  .feature-grid h3,
+  .plan-card h3 {
+    margin-top: 0;
+  }
+
+  .price {
+    color: rgb(var(--accent-light));
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  button {
+    margin-top: 0.6rem;
+    width: 100%;
+    border: 0;
+    border-radius: 0.55rem;
+    padding: 0.65rem 0.8rem;
+    background: rgba(79, 57, 250, 0.4);
+    color: var(--color-text);
+    cursor: pointer;
+  }
+</style>
