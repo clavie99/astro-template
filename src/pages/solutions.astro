@@ -1,0 +1,121 @@
+---
+import Layout from '../layouts/Layout.astro';
+export const prerender = true;
+
+const solutions = [
+  {
+    icon: '⚡',
+    title: '高性能边缘计算',
+    description: '借助全球边缘节点，将计算逻辑下沉至离用户最近的位置，大幅降低响应延迟。'
+  },
+  {
+    icon: '🔒',
+    title: '安全防护体系',
+    description: '内置 DDoS 防护、WAF 规则与 Bot 管理，为业务提供全方位安全保障。'
+  },
+  {
+    icon: '🌍',
+    title: '全球加速分发',
+    description: '依托覆盖全球的 CDN 网络，静态资源与动态请求均可实现极速分发。'
+  },
+  {
+    icon: '🔧',
+    title: '灵活函数扩展',
+    description: '支持 Edge Functions 与 Node Functions，满足轻量路由到复杂后端的全场景需求。'
+  },
+  {
+    icon: '📦',
+    title: '多框架兼容',
+    description: '完整支持 Next.js、Astro、Nuxt、Gatsby 等主流框架，零改造即可部署。'
+  },
+  {
+    icon: '📊',
+    title: '实时监控分析',
+    description: '提供请求日志、性能指标与流量统计，帮助快速定位问题并持续优化。'
+  }
+];
+---
+
+<Layout title="解决方案">
+  <main>
+    <section class="hero">
+      <h1>解决方案</h1>
+      <p class="subtitle">EdgeOne Pages 为现代 Web 应用提供完整的边缘托管能力</p>
+    </section>
+    <section class="features">
+      {solutions.map(item => (
+        <div class="card">
+          <span class="icon">{item.icon}</span>
+          <h2>{item.title}</h2>
+          <p>{item.description}</p>
+        </div>
+      ))}
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+  }
+  .hero {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, #4f39fa, #da62c4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+  }
+  .subtitle {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1.75rem 1.5rem;
+    transition: transform 0.2s, border-color 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(79,57,250,0.5);
+  }
+  .icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    .features {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
